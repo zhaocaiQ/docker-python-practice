@@ -1,15 +1,11 @@
 from fastapi import FastAPI
-import os
 
 app = FastAPI()
 
 @app.get("/")
-def home():
-    return {
-        "message":"Docker 안에서 실행되는 Python 웹 서비스입니다.",
-        "environment":os.getenv("APP_ENV", "local")
-    }
+def read_root():
+    return {"message": "Hello World"}
 
 @app.get("/health")
-def health():
+def health_check():
     return {"status": "ok"}
