@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    container_name: infra-fastapi
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=dev
+    restart: unless-stopped
